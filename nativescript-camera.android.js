@@ -7,12 +7,8 @@ var platform = require("platform");
 var REQUEST_IMAGE_CAPTURE = 3453;
 var REQUEST_REQUIRED_PERMISSIONS = 1234;
 var exifAttributes = [
-	android.media.ExifInterface.TAG_APERTURE,
 	android.media.ExifInterface.TAG_DATETIME,
-	android.media.ExifInterface.TAG_DATETIME_DIGITIZED,
 	android.media.ExifInterface.TAG_EXPOSURE_TIME,
-	android.media.ExifInterface.TAG_FLASH,
-	android.media.ExifInterface.TAG_FOCAL_LENGTH,
 	android.media.ExifInterface.TAG_GPS_ALTITUDE,
 	android.media.ExifInterface.TAG_GPS_ALTITUDE_REF,
 	android.media.ExifInterface.TAG_GPS_DATESTAMP,
@@ -24,14 +20,9 @@ var exifAttributes = [
 	android.media.ExifInterface.TAG_GPS_TIMESTAMP,
 	android.media.ExifInterface.TAG_IMAGE_LENGTH,
 	android.media.ExifInterface.TAG_IMAGE_WIDTH,
-	android.media.ExifInterface.TAG_ISO,
 	android.media.ExifInterface.TAG_MAKE,
 	android.media.ExifInterface.TAG_MODEL,
-	android.media.ExifInterface.TAG_ORIENTATION,
-	android.media.ExifInterface.TAG_SUBSEC_TIME,
-	android.media.ExifInterface.TAG_SUBSEC_TIME_DIG,
-	android.media.ExifInterface.TAG_SUBSEC_TIME_ORIG,
-	android.media.ExifInterface.TAG_WHITE_BALANCE
+	android.media.ExifInterface.TAG_ORIENTATION
 ];
 exports.takePicture = function (options) {
 	return new Promise(function (resolve, reject) {
