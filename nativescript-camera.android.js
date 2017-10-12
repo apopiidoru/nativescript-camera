@@ -24,6 +24,11 @@ var exifAttributes = [
 	android.media.ExifInterface.TAG_MODEL,
 	android.media.ExifInterface.TAG_ORIENTATION
 ];
+// these are added in api version 24
+if (platform.device.sdkVersion >= 23) {
+	exifAttributes.push(android.media.ExifInterface.TAG_DATETIME_ORIGINAL);
+	exifAttributes.push(android.media.ExifInterface.TAG_SOFTWARE);
+}
 exports.takePicture = function (options) {
 	return new Promise(function (resolve, reject) {
 		try {
