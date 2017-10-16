@@ -57,11 +57,13 @@ var UIImagePickerControllerDelegateImpl = (function (_super) {
                                 var fetchResult = PHAsset.fetchAssetsWithOptions(fetchOptions);
                                 if (fetchResult.count > 0) {
                                     var asset = fetchResult[0];
+
                                     var dateDiff = asset.creationDate.valueOf() - currentDate_1.valueOf();
                                     if (Math.abs(dateDiff) > 1000) {
                                         console.warn("Image asset returned was created more than 1 second ago");
                                     }
                                     imageAsset_1 = new imageAssetModule.ImageAsset(asset);
+                                    imageAsset_1.exif = info.objectForKey(UIImagePickerControllerMediaMetadata);
                                     _this.setImageAssetAndCallCallback(imageAsset_1);
                                 }
                             }
@@ -72,6 +74,7 @@ var UIImagePickerControllerDelegateImpl = (function (_super) {
                     }
                     else {
                         imageAsset_1 = new imageAssetModule.ImageAsset(imageSourceResult_1.ios);
+                        imageAsset_1.exif = info.objectForKey(UIImagePickerControllerMediaMetadata);
                         this.setImageAssetAndCallCallback(imageAsset_1);
                     }
                 }
